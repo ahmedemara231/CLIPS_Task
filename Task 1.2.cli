@@ -1,0 +1,12 @@
+(deftemplate num
+  (slot value))
+
+(defrule pos_int
+  (num (value ?v))
+  (test (and (integerp ?v) (> ?v 0)))
+  =>
+  (printout t "The number is a positive integer" crlf))
+
+(assert (num (value 5)))
+
+(run)
